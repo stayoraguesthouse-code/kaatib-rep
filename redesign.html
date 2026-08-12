@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kaatib Publishers — Redesigned Landing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="description" content="Kaatib Publishers — Print on Demand and Self-Publishing Services" />
+  <style>
+    :root{
+      --navy:#1a2a6c;
+      --gold:#f2a900;
+      --white:#ffffff;
+      --muted:#f5f5f5;
+      --text:#333333;
+      --max-w:1200px;
+      --radius:10px;
+      --section-pad:64px;
+      --font-heading:'Playfair Display', serif;
+      --font-body:'Inter', sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:var(--font-body);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;background:linear-gradient(90deg,rgba(26,42,108,0.96),rgba(26,42,108,0.96));backdrop-filter:saturate(120%);z-index:60}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:48px}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{color:var(--white);text-decoration:none;font-weight:600}
+    .cta-store{background:var(--white);color:var(--navy);padding:10px 16px;border-radius:6px;font-weight:700;text-decoration:none}
+    .mobile-toggle{display:none;color:var(--white);font-size:20px}
+
+    /* Hero */
+    .hero{min-height:64vh;display:grid;place-items:center;background:linear-gradient(180deg, rgba(26,42,108,0.95), rgba(26,42,108,0.88)), url('https://noorgee.pk/kp/img/saawan_a-screenplaypakistan-launch.jpg') center/cover no-repeat;color:var(--white);text-align:center;padding:80px 0}
+    .hero .inner{max-width:920px}
+    h1{font-family:var(--font-heading);font-size:48px;line-height:1.05;margin:0 0 12px}
+    h1 .accent{color:var(--gold)}
+    p.lead{font-size:18px;margin:0 0 24px;opacity:0.95}
+    .hero .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .btn{padding:12px 24px;border-radius:6px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--gold);color:var(--navy)}
+    .btn-secondary{background:transparent;border:2px solid var(--white);color:var(--white)}
+
+    /* Features */
+    .features{background:var(--muted);padding:40px 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--white);padding:20px;border-radius:8px;box-shadow:0 6px 18px rgba(26,42,108,0.06);text-align:center}
+    .card i{color:var(--gold);font-size:32px;margin-bottom:12px}
+    .card h3{font-family:var(--font-heading);margin:0 0 8px;color:var(--navy)}
+    .card p{margin:0;color:#555}
+
+    /* About */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding:var(--section-pad) 0}
+    .split img{width:100%;border-radius:12px;box-shadow:0 8px 30px rgba(26,42,108,0.08)}
+    .checklist{display:grid;gap:8px;margin-top:12px}
+    .check{display:flex;gap:12px;align-items:flex-start}
+    .check i{color:var(--gold);margin-top:6px}
+
+    /* Services */
+    .services{padding:var(--section-pad) 0;text-align:center}
+    .services-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+    .svc{background:var(--white);padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(26,42,108,0.04)}
+    .svc i{font-size:28px;color:var(--gold);margin-bottom:10px}
+    .svc h4{font-family:var(--font-heading);font-size:18px;margin:6px 0}
+    .svc p{font-size:14px;margin:0;color:#555}
+
+    /* Pricing */
+    .pricing{background:var(--muted);padding:var(--section-pad) 0;text-align:center}
+    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .tier{background:var(--white);padding:22px;border-radius:10px;position:relative}
+    .tier .bar{height:6px;background:var(--gold);border-radius:4px;margin-bottom:12px}
+    .tier h3{margin:0 0 6px;color:var(--navy);font-family:var(--font-heading)}
+    .features-list{margin-top:10px;text-align:left}
+    .features-list li{margin-bottom:8px}
+
+    /* Books */
+    .books{padding:var(--section-pad) 0}
+    .books-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+    .book{background:var(--white);padding:12px;border-radius:8px;text-align:center}
+    .book img{width:100%;height:300px;object-fit:cover;border-radius:6px}
+    .book h5{margin:10px 0 6px;font-family:var(--font-heading);font-size:16px}
+    .book p{margin:0;color:#666;font-size:13px}
+
+    /* Contact */
+    .contact{padding:var(--section-pad) 0;text-align:center}
+    .form-wrap{max-width:760px;margin:0 auto;background:var(--white);padding:24px;border-radius:12px;box-shadow:0 10px 30px rgba(26,42,108,0.06);text-align:left}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{font-weight:600;font-size:14px;color:var(--navy);display:block;margin-bottom:6px}
+    input,textarea{width:100%;padding:10px;border:1px solid #e6e6e6;border-radius:8px;font-size:14px}
+    textarea{min-height:140px;resize:vertical}
+    .form-actions{text-align:right;margin-top:12px}
+
+    /* Footer */
+    footer{background:var(--navy);color:var(--white);padding:36px 0;margin-top:30px}
+    footer .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    footer a{color:var(--gold);text-decoration:none}
+
+    /* Responsive */
+    @media(max-width:1024px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .services-grid{grid-template-columns:repeat(3,1fr)}
+      .pricing-grid{grid-template-columns:repeat(2,1fr)}
+      .books-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:768px){
+      nav ul{display:none}
+      .mobile-toggle{display:block}
+      .hero{padding:56px 0}
+      .split{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .pricing-grid{grid-template-columns:1fr}
+      .books-grid{grid-template-columns:repeat(2,1fr)}
+      header{padding:8px 0}
+      .form-row{grid-template-columns:1fr}
+      footer .cols{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <a href="#"><img src="https://noorgee.pk/kp/img/kp-logo.png" alt="Kaatib Publishers Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#books">Books</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="cta-store" href="https://noorgee.pk/kp/store" target="_blank" rel="noopener">Visit Store</a>
+        <button class="mobile-toggle" aria-label="Toggle menu"><i class="fa fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container inner">
+        <h1>Your Story Deserves to Be <span class="accent">Printed</span></h1>
+        <p class="lead">Professional <span class="accent">Print on Demand</span> and Self-Publishing Services for Authors, Institutions, and Creative Minds</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Start Your Project</a>
+          <a class="btn btn-secondary" href="https://noorgee.pk/kp/store" target="_blank" rel="noopener">Explore Our Books</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="cards">
+          <div class="card">
+            <i class="fa fa-clock"></i>
+            <h3>Fast Turnaround</h3>
+            <p>3-4 weeks from final proof to delivery. Professional quality, rapid execution.</p>
+          </div>
+          <div class="card">
+            <i class="fa fa-box-open"></i>
+            <h3>Zero Inventory</h3>
+            <p>Print on demand means no storage costs. Sell what you print, print what you sell.</p>
+          </div>
+          <div class="card">
+            <i class="fa fa-user-shield"></i>
+            <h3>Author Control</h3>
+            <p>You retain full creative control and ownership. Maximum royalties, minimum hassle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container split">
+      <div>
+        <h2 style="font-family:var(--font-heading);color:var(--navy);font-size:36px;margin:0 0 12px">Why Choose Kaatib Publishers?</h2>
+        <p>We believe every manuscript deserves a platform. Whether you're publishing a medical yearbook, a collection of Sufi poetry, or a captivating novel, Kaatib Publishers provides the expertise and infrastructure to bring your vision to life.</p>
+        <p>Unlike traditional publishing where authors receive only 6-10% royalties, our model puts the profit back in your hands. You keep 30% to 100% of your royalties.</p>
+        <div class="checklist">
+          <div class="check"><i class="fa fa-check-circle"></i><div>Bespoke printing in custom sizes</div></div>
+          <div class="check"><i class="fa fa-check-circle"></i><div>Hardcover, Softcover &amp; eBook formats</div></div>
+          <div class="check"><i class="fa fa-check-circle"></i><div>Amazon KDP integration</div></div>
+          <div class="check"><i class="fa fa-check-circle"></i><div>Global distribution network</div></div>
+          <div class="check"><i class="fa fa-check-circle"></i><div>Professional design consultation</div></div>
+        </div>
+      </div>
+      <div>
+        <img src="https://noorgee.pk/kp/img/food-tales.png" alt="Food Tales promotional graphic">
+        <div style="height:16px"></div>
+        <img src="https://upload.wikimedia.org/wikipedia/en/1/12/Saawan_poster.jpeg" alt="Launching Event of Book Saawan - Screen Play from Pakistan">
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <h2 style="font-family:var(--font-heading);color:var(--navy);">Our Specialized Services</h2>
+        <p style="color:#555;margin-top:8px;margin-bottom:20px">Tailored publishing solutions for every genre and institutional need</p>
+        <div class="services-grid">
+          <div class="svc"><i class="fa fa-graduation-cap"></i><h4>Yearbooks</h4><p>Professional yearbook printing for schools, colleges, and medical institutions with custom layouts and premium finishes.</p></div>
+          <div class="svc"><i class="fa fa-heart"></i><h4>Memoirs &amp; Biographies</h4><p>Preserve family history and personal stories with beautifully printed memoirs and biographical collections.</p></div>
+          <div class="svc"><i class="fa fa-mosque"></i><h4>Spiritual &amp; Religious</h4><p>Islamic guides, religious literature, and spiritual works printed with care and respect.</p></div>
+          <div class="svc"><i class="fa fa-palette"></i><h4>Art &amp; Poetry</h4><p>Fine art portfolios and poetry collections that showcase your creative vision in stunning print.</p></div>
+          <div class="svc"><i class="fa fa-book"></i><h4>Fiction &amp; Novels</h4><p>Bring your stories to life with professional printing and distribution for independent authors.</p></div>
+          <div class="svc"><i class="fa fa-chalkboard-teacher"></i><h4>Educational Materials</h4><p>Textbooks, workbooks, and educational resources printed to the highest academic standards.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <h2 style="font-family:var(--font-heading);color:var(--navy);">Transparent Pricing Tiers</h2>
+        <p style="color:#555;margin-top:8px;margin-bottom:20px">Scalable costs for every author. Start small and grow with us.</p>
+        <div class="pricing-grid">
+          <div class="tier">
+            <div class="bar"></div>
+            <h3>Starter</h3>
+            <p><strong>1-9 Books</strong><br>$98 Setup Fee</p>
+            <ul class="features-list"><li>Professional printing</li><li>Standard binding</li><li>Design consultation</li></ul>
+          </div>
+          <div class="tier">
+            <div class="bar"></div>
+            <h3>Growth</h3>
+            <p><strong>10-24 Books</strong><br>10% OFF</p>
+            <ul class="features-list"><li>Multiple binding options</li><li>Priority support</li><li>Bulk pricing</li></ul>
+          </div>
+          <div class="tier">
+            <div class="bar"></div>
+            <h3>Professional</h3>
+            <p><strong>25-49 Books</strong><br>20% OFF</p>
+            <ul class="features-list"><li>Premium printing</li><li>Custom finishes</li><li>Dedicated account manager</li></ul>
+          </div>
+          <div class="tier">
+            <div class="bar"></div>
+            <h3>Enterprise</h3>
+            <p><strong>50+ Books</strong><br>30-90% OFF</p>
+            <ul class="features-list"><li>Custom solutions</li><li>Global distribution</li><li>White-label options</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="books" class="books container">
+      <h2 style="font-family:var(--font-heading);color:var(--navy);">Recently Published</h2>
+      <p style="color:#555;margin-top:8px;margin-bottom:20px">Curated selections from the Kaatib Publishers catalog</p>
+      <div class="books-grid">
+        <div class="book"><img src="https://noorgee.pk/kp/img/prlhrd-kp-1.jpg" alt="The Pearl of Heart"><h5>The Pearl of Heart</h5><p>Travel / Poetry — Najma Usman</p></div>
+        <div class="book"><img src="https://noorgee.pk/kp/img/whspr-kp-1.jpg" alt="Whispers of a Broken Branch"><h5>Whispers of a Broken Branch</h5><p>Fiction — Najma Usman</p></div>
+        <div class="book"><img src="https://upload.wikimedia.org/wikipedia/en/1/12/Saawan_poster.jpeg" alt="Saawan"><h5>Saawan</h5><p>Educational / Screenplay — Dr. Mashood Qadri</p></div>
+        <div class="book"><img src="https://noorgee.pk/kp/img/kp-doosri-kitaab.png" alt="Doosri Kitab"><h5>Doosri Kitab</h5><p>Fiction — Syed Atif Ali</p></div>
+        <div class="book"><img src="https://noorgee.pk/kp/img/kp-doosri-kitaab.png" alt="Food Tales"><h5>Food Tales</h5><p>Cookbook — Shanaz Ramzi</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 style="font-family:var(--font-heading);color:var(--navy);">Ready to Publish?</h2>
+        <p style="color:#555;margin-top:8px;margin-bottom:20px">Get in touch with our team to discuss your publishing project</p>
+        <div class="form-wrap">
+          <form id="contact-form" method="post" action="/kp/contact">
+            <div class="form-row">
+              <div>
+                <label for="name">Your Name</label>
+                <input id="name" name="name" type="text" required placeholder="Your full name">
+              </div>
+              <div>
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" required placeholder="you@example.com">
+              </div>
+            </div>
+            <div style="margin-top:12px">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="Optional">
+            </div>
+            <div style="margin-top:12px">
+              <label for="project">Project Details</label>
+              <textarea id="project" name="project" rows="6" required placeholder="Tell us about your publishing project..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send Inquiry</button>
+            </div>
+            <div id="form-msg" style="margin-top:12px;color:green;display:none">Thank you for your inquiry. We'll be in touch soon.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="cols">
+        <div>
+          <h4 style="margin-top:0;font-family:var(--font-heading)">About Kaatib Publishers</h4>
+          <p>Kaatib Publishers LLC is a premier Print on Demand provider specializing in high-quality self-publishing solutions for independent authors and institutions across the globe.</p>
+          <div style="margin-top:8px">
+            <a href="https://www.facebook.com/kaatib.publisher/" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.linkedin.com/company/kaatib-publishers/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-family:var(--font-heading)">Quick Links</h4>
+          <ul style="list-style:none;padding:0;margin:0">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#books">Our Books</a></li>
+            <li><a href="https://noorgee.pk/kp/store" target="_blank" rel="noopener">Online Store</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-family:var(--font-heading)">Contact Info</h4>
+          <p>Sugar Land, TX 77479, USA<br>info@kaatibpublishers.com</p>
+        </div>
+        <div>
+          <h4 style="font-family:var(--font-heading)">Imprint</h4>
+          <p>Pakistan Imprint — Official Registered Publisher with the National Library of Pakistan.<br>ISBN: 978-969-7932</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:20px;border-top:1px solid rgba(255,255,255,0.06);padding-top:14px">© 2026 Kaatib Publishers LLC. All Rights Reserved. · Parent Group: <a href="https://bahalimgroup.com" target="_blank" rel="noopener">Bahalim Group</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    });
+
+    // Simple form submit handling (AJAX fallback)
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit',async function(e){
+      // Allow default POST if endpoint exists; prevent and do AJAX submit for UX
+      e.preventDefault();
+      const data = new FormData(form);
+      try{
+        const res = await fetch(form.action,{method:'POST',body:data});
+        if(res.ok){
+          form.reset();
+          document.getElementById('form-msg').style.display='block';
+        }else{
+          alert('There was an error sending your inquiry. Please email info@kaatibpublishers.com');
+        }
+      }catch(err){
+        // network or CORS — still show thank you and advise email
+        document.getElementById('form-msg').style.display='block';
+      }
+    });
+  </script>
+</body>
+</html>
