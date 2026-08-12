@@ -21,9 +21,9 @@ const config: Config = {
           700: '#968862',
           800: '#87774B',
           900: '#78663A',
-          950: '#10233F', // Deep Ink
+          950: '#2C1A0E', // Deep Coffee Brown (was Deep Ink Blue)
         },
-        'royal': '#1F3A5F',
+        'royal': '#4A2C0A',   // Coffee Brown (was Blue #1F3A5F)
         'ivory': '#FAF8F4',
         'beige': '#F4EFE6',
         'gold': {
@@ -75,7 +75,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-luxury': 'linear-gradient(135deg, #FAF8F4 0%, #F4EFE6 100%)',
-        'gradient-dark': 'linear-gradient(135deg, #10233F 0%, #1F3A5F 100%)',
+        'gradient-dark': 'linear-gradient(135deg, #2C1A0E 0%, #4A2C0A 100%)', // Coffee Brown gradient (was Blue)
         'radial-gold': 'radial-gradient(circle at 50% 50%, rgba(200, 155, 60, 0.1) 0%, transparent 70%)',
       },
       backdropBlur: {
