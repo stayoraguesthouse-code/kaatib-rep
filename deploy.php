@@ -19,6 +19,7 @@ define('BRANCH', 'main-kp');
 define('REPO_URL', 'https://github.com/stayoraguesthouse-code/kaatib-rep.git');
 define('BACKUP_DIR', REPO_PATH . '/backups');
 define('TIMEZONE', 'Asia/Karachi');
+define('NODE_PATH', '/home/noorgeec/nodevenv/kp/18/bin'); // cPanel Node.js virtual env path
 define('SESSION_TIMEOUT', 3600); // 1 hour
 define('COMMIT_HISTORY_LIMIT', 50);
 define('AUTO_REFRESH_INTERVAL', 3600); // 1 hour in seconds
@@ -266,15 +267,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_SESSIO
 
     switch ($_POST['action']) {
         case 'pull':
+            $node_bin = NODE_PATH;
             $commands = [
                 'git fetch origin',
                 'git checkout ' . BRANCH,
-                'git pull origin ' . BRANCH
+                'git pull origin ' . BRANCH,
+                "export PATH={$node_bin}:\$PATH && npm install --legacy-peer-deps",
+                "export PATH={$node_bin}:\$PATH && npm run build"
             ];
             $output = [];
             foreach ($commands as $cmd) {
                 $result = execute_command($cmd);
-                $output[] = $result['output'];
+                $output[] = '$ ' . $cmd . "\n" . $result['output'];
+                if (!$result['success'] && strpos($cmd, 'npm') !== false) {
+                    $output[] = '[Build step failed - check Node.js path in config]';
+                }
             }
             $response['output'] = implode("\n", $output);
             $response['success'] = true;
@@ -282,15 +289,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_SESSIO
             break;
 
         case 'force_pull':
+            $node_bin = NODE_PATH;
             $commands = [
                 'git fetch origin',
                 'git reset --hard origin/' . BRANCH,
-                'git clean -fd'
+                'git clean -fd',
+                "export PATH={$node_bin}:\$PATH && npm install --legacy-peer-deps",
+                "export PATH={$node_bin}:\$PATH && npm run build"
             ];
             $output = [];
             foreach ($commands as $cmd) {
                 $result = execute_command($cmd);
-                $output[] = $result['output'];
+                $output[] = '$ ' . $cmd . "\n" . $result['output'];
+                if (!$result['success'] && strpos($cmd, 'npm') !== false) {
+                    $output[] = '[Build step failed - check Node.js path in config]';
+                }
             }
             $response['output'] = implode("\n", $output);
             $response['success'] = true;
